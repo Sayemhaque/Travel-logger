@@ -1,11 +1,10 @@
-import Navbar from "../../componetns/Navbar/Navbar";
+import Hero from "../../componetns/Hero/Hero";
 
 const Home = () => {
     return (
         <>
-            {/* Navbar */}
-            <Navbar />
-
+            {/* Hero */}
+            <Hero />
         </>
     );
 };
