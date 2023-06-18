@@ -10,7 +10,7 @@ const Hero = () => {
                 Journey into the Heart of  <span className="text-green-500">Bangladesh</span></h1>
                 <p className="mb-5 text-sm md:text-md font-semibold">Find the Best Places to Visit and Uncover Extraordinary Experiences.</p>
                 {/* serchbar */}
-            <div className="flex-1 px-12 relative">
+                <div className="flex-1 px-12 relative">
                 <input type="text" 
                 placeholder="Search place"
                 className="font-bold border border-gray-300 bg-gray-300 bg-opacity-10 px-4 py-2 w-full rounded-full" />
