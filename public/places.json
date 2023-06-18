@@ -3,7 +3,7 @@
         "title": "Sundarbans National Park - Exploring the Largest Mangrove Forest",
         "author": ["John Smith", "Emily Johnson"],
         "image": "https://media.istockphoto.com/id/1137892510/photo/narrow-creeks-with-river-stream-flowing-into-deep-mangrove-jungle-consisting-of-mainly.jpg?s=612x612&w=0&k=20&c=U9ZLD01pt1ErYGUym1X9bQpG6Zsh1N2bKa5J17fufok=",
-        "location": "Khulna Division, Bangladesh",
+        "location": "Khulna ",
         "rating": 4.8,
         "details": "Sundarbans National Park is the largest mangrove forest in the world, known for its rich biodiversity and the Royal Bengal Tigers. Explore the dense forests, spot various wildlife species, and take a thrilling boat ride through the beautiful rivers.",
         "category": "National Parks"
@@ -12,7 +12,7 @@
         "title": "Cox's Bazar - World's Longest Natural Sandy Beach",
         "author": ["Michael Clark", "Sophia Davis"],
         "image": "https://images.unsplash.com/photo-1587222318667-31212ce2828d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y294cyUyMGJhemFyfGVufDB8fDB8fHww&w=1000&q=80",
-        "location": "Chittagong Division, Bangladesh",
+        "location": "Chittagong ",
         "rating": 4.7,
         "details": "Cox's Bazar is the world's longest natural sandy beach, stretching over 120 kilometers. Enjoy the stunning views of the Bay of Bengal, indulge in water sports, and visit nearby attractions like Himchori Waterfall and Inani Beach.",
         "category": "Beaches"
@@ -21,7 +21,7 @@
         "title": "Sajek Valley - Picturesque Hill Station",
         "author": ["Robert Anderson", "Olivia Wilson"],
         "image": "https://thumbs.dreamstime.com/b/sajek-valley-rangamati-sajek-valley-rangamati-bangladesh-237229905.jpg",
-        "location": "Rangamati District, Bangladesh",
+        "location": "Rangamati ",
         "rating": 4.6,
         "details": "Sajek Valley is a picturesque hill station surrounded by hills and forests. Marvel at the panoramic views, go for hiking and trekking, and immerse yourself in the indigenous culture of the local communities.",
         "category": "Hill Stations"
@@ -30,7 +30,7 @@
         "title": "Boat Journey through Sundarbans - Exploring the Mangrove Forests",
         "author": ["Sarah Lee", "Daniel Clark"],
         "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/65/03/8c/sundarban.jpg?w=1200&h=1200&s=1",
-        "location": "Khulna Division, Bangladesh",
+        "location": "Khulna ",
         "rating": 4.5,
         "details": "Embark on an adventurous boat journey through the meandering rivers of Sundarbans, witnessing the incredible mangrove forests and diverse wildlife. Spot tigers, crocodiles, deer, and various bird species along the way.",
         "category": "Wildlife"
@@ -39,7 +39,7 @@
         "title": "Saint Martin's Island - Pristine Beaches and Crystal-Clear Waters",
         "author": ["Michael Johnson", "Ava Taylor"],
         "image": "https://c4.wallpaperflare.com/wallpaper/839/569/182/maho-beach-island-of-saint-martin-caribbean-wallpaper-preview.jpg",
-        "location": "Chittagong Division, Bangladesh",
+        "location": "Chittagong ",
         "rating": 4.4,
         "details": "Saint Martin's Island is a small coral island famous for its pristine beaches and crystal-clear waters. Snorkel, dive, and relax on the sandy shores, and savor delicious seafood delicacies.",
         "category": "Islands"
@@ -48,7 +48,7 @@
         "title": "Rangamati - Serene Hill Town with Beautiful Lake Views",
         "author": ["Isabella Martinez", "Noah Wilson"],
         "image": "https://images.unsplash.com/photo-1642179335770-82d5ffc4b439?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJhbmdhbWF0aXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-        "location": "Rangamati District, Bangladesh",
+        "location": "Rangamati ",
         "rating": 4.3,
         "details": "Rangamati is a scenic hill town surrounded by lush green hills and the beautiful Kaptai Lake. Enjoy boat rides, explore tribal villages, and visit attractions like Hanging Bridge and Rajban Vihara Buddhist Monastery.",
         "category": "Hill Stations"
@@ -57,7 +57,7 @@
         "title": "Bandarban - Hilly District with Natural Beauty and Tribal Communities",
         "author": ["David Williams", "Sophie Adams"],
         "image": "https://t4.ftcdn.net/jpg/04/21/31/69/360_F_421316917_27S8Fxov5qNbuFN5LuFwFZkhSvBrBoK3.jpg",
-        "location": "Chittagong Division, Bangladesh",
+        "location": "Chittagong ",
         "rating": 4.2,
         "details": "Bandarban is a hilly district with abundant natural beauty and indigenous tribal communities. Trek to the highest peak in Bangladesh, explore tribal villages, and enjoy the stunning landscapes and waterfalls.",
         "category": "Hill Stations"
@@ -66,7 +66,7 @@
         "title": "Kuakata - Serene Beach Town with Unique Sunrise and Sunset Views",
         "author": ["Ethan Thompson", "Lily Rodriguez"],
         "image": "https://images.unsplash.com/photo-1570724842773-870b964fede1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a3Vha2F0YSUyQyUyMGJhbmdsYWRlc2h8ZW58MHx8MHx8fDA%3D%3D&w=1000&q=80",
-        "location": "Barisal Division, Bangladesh",
+        "location": "Barisal ",
         "rating": 4.1,
         "details": "Kuakata is a serene beach town known for its unique beach sunrise and sunset views. Take a horse cart ride, visit Buddhist temples, and relax on the tranquil beaches.",
         "category": "Beaches"
@@ -75,7 +75,7 @@
         "title": "Ratargul Swamp Forest - Exploring the 'Amazon of Bengal'",
         "author": ["Daniel Johnson", "Emma Brown"],
         "image": "https://thumbs.dreamstime.com/b/watch-tower-ratargul-swamp-forest-237433190.jpg",
-        "location": "Sylhet Division, Bangladesh",
+        "location": "Sylhet ",
         "rating": 4.0,
         "details": "Ratargul Swamp Forest is a freshwater swamp forest known as the 'Amazon of Bengal.' Explore the forest by boat, spot various species of birds and aquatic life, and immerse yourself in the natural beauty.",
         "category": "Nature"
@@ -84,7 +84,7 @@
         "title": "Lalbagh Fort - Historical Mughal Fort in Dhaka",
         "author": ["Sophia Martinez", "Oliver Wilson"],
         "image": "https://media.istockphoto.com/id/833061778/photo/bangladesh-dhaka.jpg?s=612x612&w=0&k=20&c=BxAGfg63NP9exzkTodUYVLE4-GMXaqJt881yZtJdjrY=",
-        "location": "Dhaka, Bangladesh",
+        "location": "Dhaka",
         "rating": 3.9,
         "details": "Lalbagh Fort is a historical Mughal fort in the heart of Dhaka. Explore the impressive architecture, visit the museum, and learn about its rich history dating back to the 17th century.",
         "category": "Historical Sites"
