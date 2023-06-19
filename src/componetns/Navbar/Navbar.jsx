@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
         <div className="flex justify-between items-center shadow-lg py-3 px-5 md:px-12">
             <ul className="hidden font-semibold text-sm uppercase md:flex gap-3 items-center">
                 <li><a href="/login">Login</a></li>
-                <li><a href="/reviews">Add a place</a></li>
+                <li><Link to="/add">Add a place</Link></li>
             </ul>
             {/* LOGO */}
             <div>
