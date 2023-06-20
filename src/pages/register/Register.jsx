@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Button from "../../componetns/Button/Button";
 import { Link } from "react-router-dom";
+import registerImage from "../../assets/placeholder-concept-illustration_114360-4847.avif"
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
@@ -9,6 +10,9 @@ const Register = () => {
    }
     return (
         <div className="flex items-center h-screen w-full justify-center">
+             <div className="w-1/2">
+       <img src={registerImage}  alt="" />
+       </div>
         <form 
         onSubmit={handleSubmit(onSubmit)}
         className="bg-base-200

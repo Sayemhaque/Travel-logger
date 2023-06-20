@@ -1,10 +1,30 @@
 import { useForm } from "react-hook-form";
 import Button from "../../componetns/Button/Button";
+import { addPlace, uploadImage } from "../../utils";
+import { Toaster, toast } from "react-hot-toast";
 
 const AddPlace = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit ,reset} = useForm();
       const onSubmit = async (data) => {
-       console.log(data)
+        const url = await uploadImage(data.image[0])
+        console.log(url)
+        const {title,location,author,email,category,rating,details} = data;
+        const placeData = {
+          title,
+          location,
+          author,
+          email,
+          category,
+          image:url,
+          rating,
+          details,
+        }
+        const res = await addPlace(placeData)
+        if(res.statusText === "Created"){
+          toast.success('Successfully posted!')
+          reset()
+        }
+        console.log()
      }
     return (
         <div className="flex items-center h-screen w-full justify-center">
@@ -36,7 +56,7 @@ const AddPlace = () => {
                  className="rounded-md w-10/12 py-2 px-5 mt-4
                   focus:outline-none"/>
                 <input type="file"
-                 {...register("photo")}
+                 {...register("image")}
                  className="file-input
                  file-input-bordered file-input-success w-10/12" />
               <div className="grid grid-cols-2 gap-2 w-10/12">
@@ -47,7 +67,9 @@ const AddPlace = () => {
                  className=" rounded-md px-2   py-2  
                   focus:outline-none"/>
                 <input type="text"
-                 required placeholder="Categroy" 
+                 required 
+                 placeholder="Categroy" 
+                 {...register("category")}
                  className=" rounded-md px-2  py-2  
                   focus:outline-none"/>
               </div>
@@ -61,6 +83,10 @@ const AddPlace = () => {
                 </textarea>
                   <Button title={'Add'} bgColor={'bg-green-500 text-white w-10/12 py-2'}/>
             </form>
+            <Toaster
+         position="top-center"
+       reverseOrder={false}
+    />
         </div>
     );
 };
