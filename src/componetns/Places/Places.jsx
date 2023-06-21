@@ -4,15 +4,13 @@ import Card from "./Card";
 
 const Places = () => {
   const [places, setPlaces] = useState([])
-  const [currentPage, setCurrentPage] = useState(0)
-  const [totalPlaces, setTotaPlaces] = useState(0)
 
 
  
 
-  const totalItemsPerPage = parseInt(6); // TODO: will make it dynamic
-  const totalPages = Math.ceil(totalPlaces / totalItemsPerPage)
-  const pages = [...Array(totalPages).keys()]
+  // const totalItemsPerPage = parseInt(6); // TODO: will make it dynamic
+  // const totalPages = Math.ceil(totalPlaces / totalItemsPerPage)
+  // const pages = [...Array(totalPages).keys()]
 
   useEffect(() => {
     const getData = async () => {
@@ -23,24 +21,8 @@ const Places = () => {
     }
     getData()
    
-  }, [currentPage, totalItemsPerPage])
-  useEffect(() => {
-    const getData = async () => {
-      const res = await fetch(`http://localhost:5000/totalPlaces`)
-      const data = await res.json()
-      setTotaPlaces(data.totalPlaces)
-      console.log(data)
-    }
-    getData()
-   
   }, [])
 
-  //get places data
-  const handleCurrentPage = (number) => {
-    console.log(typeof number)
-      setCurrentPage(number);
-    
-  }
 
  console.log(places)
   return (
@@ -51,11 +33,6 @@ const Places = () => {
           {places.map(place => <Card key={place.category} place={place} />)}
           <div className="text-center space-x-2">
             <p>{places.length}</p>
-            {pages.map(number =>
-              <button
-                onClick={() => handleCurrentPage(number)}
-                className={`p-2 rounded-md  ${currentPage === number ? "bg-green-500" : "bg-gray-300"}`} key={number}>{number}
-              </button>)}
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { FaEnvelope } from "react-icons/fa";
 import locationImage from "../../assets/placeholder.png"
-import Card from "../../componetns/Places/Card";
 const Profile = () => {
     return (
         <div className="md:max-w-4xl mx-auto py-12">

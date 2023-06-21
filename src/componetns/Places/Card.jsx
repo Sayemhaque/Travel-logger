@@ -5,18 +5,18 @@ import { FaArrowAltCircleRight, FaStar } from "react-icons/fa";
 
 const Card = ({ place }) => {
   return (
-    <div 
-    className="rounded-lg bg-white
+    <article
+      className="rounded-lg bg-white
      flex flex-col md:flex-row gap-5 shadow-lg 
      hover:scale-105 duration-500">
       {/* image */}
-      <div>
+      <figure>
         <img
           className="w-full object-cover md:w-[200px] h-full"
           src={place.image}
           alt=""
         />
-      </div>
+      </figure>
       {/* information */}
       <div className="px-4 py-2 md:w-8/12 bg-white">
         <h2 className="text-md md:text-lg font-bold">{place.title}</h2>
@@ -47,7 +47,7 @@ const Card = ({ place }) => {
           />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
