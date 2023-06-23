@@ -1,13 +1,30 @@
 import { useForm } from "react-hook-form";
 import Button from "../../componetns/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import registerImage from "../../assets/placeholder-concept-illustration_114360-4847.avif"
+import { useContext, useState } from "react";
+import { AUTH_CONTEXT } from "../../context/AuthProvider";
+import { uploadImage } from "../../utils";
 
 const Register = () => {
+    const {createUserFirebase,updateProfileFirbase,logOut} = useContext(AUTH_CONTEXT)
+    const [error,setError] = useState("")
+    const navigate = useNavigate()
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
-     console.log(data)
+     //creating user
+   try {
+     const url = await uploadImage(data.photo[0])
+    await createUserFirebase(data.email,data.password)
+    await updateProfileFirbase(data.name,url)
+    await logOut()
+    navigate("/login")
+    console.log(data)
+   } catch (error) {
+    setError(error.message)
    }
+   }
+   
     return (
         <div className="flex items-center h-screen w-full justify-center">
              <div className="w-1/2">
@@ -25,7 +42,9 @@ const Register = () => {
              className="rounded-md w-10/12 py-2 px-5 
               focus:outline-none"/>
             <input type="email"
-             required placeholder="email" 
+             required 
+             placeholder="email" 
+             {...register("email")} 
              className="rounded-md w-10/12 py-2 px-5 mt-4
               focus:outline-none"/>
             <input type="text"
@@ -38,6 +57,7 @@ const Register = () => {
              {...register("photo")}
              className="file-input
              file-input-bordered file-input-success w-10/12" />
+             <p className="text-red-400">{error}</p>
               <Button 
               title={'Register'}
                bgColor={'bg-green-500 text-white w-10/12 py-2'}/>

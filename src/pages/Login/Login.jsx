@@ -1,18 +1,27 @@
 import { useForm } from "react-hook-form";
 import Button from "../../componetns/Button/Button";
 import loginImage from "../../assets/tablet-login-concept-illustration_114360-7893.avif"
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AUTH_CONTEXT } from "../../context/AuthProvider";
 import googleIcon from "../../assets/google.png"
 const Login = () => {
-  const {logInWithGoogle} = useContext(AUTH_CONTEXT)
+  const {logInWithGoogle,logInFirebase} = useContext(AUTH_CONTEXT)
+  const navigate = useNavigate()
+  const [error,setError] = useState("")
     const { register, handleSubmit } = useForm();
       const onSubmit = async (data) => {
        console.log(data)
+     try {
+      await logInFirebase(data.email,data.password)
+      navigate("/")
+     } catch (error) {
+      setError(error.message)
+     }
      }
      const handleLoginWithGoogle = async () => {
       await logInWithGoogle()
+      navigate("/")
      }
     return (
         <div className="flex flex-col
@@ -47,9 +56,10 @@ const Login = () => {
             <input type="password"
              required 
              placeholder="password" 
-             {...register("email")}
+             {...register("password")}
              className="rounded-md w-10/12 py-2 px-5 mt-4
               focus:outline-none"/>
+               <p className="text-red-400">{error}</p>
               <Button title={'Login'} bgColor={'bg-green-300  w-10/12 py-2'}/>
               <p className="text-start">Do not have an account?please
                <Link to="/register" className="underline ml-2">Register</Link></p>
