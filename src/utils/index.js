@@ -6,6 +6,11 @@ const addPlace = async (data) =>{
     return res
 }
 
+// add user mongoData base
+const addUser = async (data) => {
+  const res = await axios.post("http://localhost:3000/user",data)
+  return res;
+}
 
 
 
@@ -22,4 +27,4 @@ const uploadImage = async image => {
     return data.data.display_url
   }
 
-  export {uploadImage,addPlace}
+  export {uploadImage,addPlace,addUser}

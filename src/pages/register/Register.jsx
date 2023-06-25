@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import registerImage from "../../assets/placeholder-concept-illustration_114360-4847.avif"
 import { useContext, useState } from "react";
 import { AUTH_CONTEXT } from "../../context/AuthProvider";
-import { uploadImage } from "../../utils";
+import { addUser, uploadImage } from "../../utils";
 
 const Register = () => {
     const {createUserFirebase,updateProfileFirbase,logOut} = useContext(AUTH_CONTEXT)
@@ -17,6 +17,7 @@ const Register = () => {
      const url = await uploadImage(data.photo[0])
     await createUserFirebase(data.email,data.password)
     await updateProfileFirbase(data.name,url)
+    await addUser({name:data.name,email:data.email,image:url,location:data.location,role:"user"})
     await logOut()
     navigate("/login")
     console.log(data)
@@ -41,13 +42,19 @@ const Register = () => {
              {...register("name")} 
              className="rounded-md w-10/12 py-2 px-5 
               focus:outline-none"/>
+                <input type="text"
+             required 
+             placeholder="your location"
+             {...register("location")} 
+             className="rounded-md w-10/12 py-2 px-5 
+              focus:outline-none"/>
             <input type="email"
              required 
              placeholder="email" 
              {...register("email")} 
              className="rounded-md w-10/12 py-2 px-5 mt-4
               focus:outline-none"/>
-            <input type="text"
+            <input type="password"
              required
              placeholder="password" 
              {...register("password")}

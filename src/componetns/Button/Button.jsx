@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
 
-const Button = ({title,bgColor}) => {
+const Button = ({title,bgColor,disable}) => {
     return (
-        <button className={`px-16 py-2 rounded-full font-bold ${bgColor}`}>
+        <button disabled={disable} className={`px-16 py-2 rounded-full font-bold ${bgColor}`}>
            {title} 
         </button>
     );

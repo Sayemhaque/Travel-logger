@@ -16,8 +16,8 @@ const Navbar = () => {
             {/* links */}
             <ul className="hidden font-semibold text-md  md:flex gap-3 items-center">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/profile">Profile</Link></li>
-                <li><Link to="/add">Add a place</Link></li>
+                <li>{user && <Link to="/profile">Profile</Link>}</li>
+                <li>{user && <Link to="/add">Add a place</Link>}</li>
                 {user ?   <li onClick={handleLogOut}><p>Logout</p></li> :
                  <li><Link to="/login">Login</Link></li>
                 }

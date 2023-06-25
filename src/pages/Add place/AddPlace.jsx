@@ -2,18 +2,23 @@ import { useForm } from "react-hook-form";
 import Button from "../../componetns/Button/Button";
 import { addPlace, uploadImage } from "../../utils";
 import { Toaster, toast } from "react-hot-toast";
+import { useContext, useState } from "react";
+import { AUTH_CONTEXT } from "../../context/AuthProvider";
 
 const AddPlace = () => {
+  const {user} = useContext(AUTH_CONTEXT)
+  const [loading,setLoading] = useState(false)
     const { register, handleSubmit ,reset} = useForm();
       const onSubmit = async (data) => {
+        setLoading(true)
         const url = await uploadImage(data.image[0])
         console.log(url)
-        const {title,location,author,email,category,rating,details} = data;
+        const {title,location,category,rating,details} = data;
         const placeData = {
           title,
           location,
-          author,
-          email,
+          author:user.displayName,
+          email:user.email,
           category,
           image:url,
           rating,
@@ -24,6 +29,7 @@ const AddPlace = () => {
           toast.success('Successfully posted!')
           reset()
         }
+        setLoading(false)
         console.log()
      }
     return (
@@ -41,18 +47,23 @@ const AddPlace = () => {
                   focus:outline-none"/>
                 <input type="text"
                  required placeholder="Location" 
+                 {...register("location")} 
                  className="rounded-md w-10/12 py-2 px-5 mt-4
                   focus:outline-none"/>
                 <input type="text"
                  required
                  placeholder="Author" 
                  {...register("author")}
+                 defaultValue={user?.displayName}
+                 readOnly
                  className="rounded-md w-10/12 py-2 px-5 mt-4
                   focus:outline-none"/>
                 <input type="text"
                  required 
                  placeholder="Email" 
                  {...register("email")}
+                 defaultValue={user?.email}
+                 readOnly
                  className="rounded-md w-10/12 py-2 px-5 mt-4
                   focus:outline-none"/>
                 <input type="file"
@@ -81,7 +92,7 @@ const AddPlace = () => {
                 className="p-2 w-10/12"
                 cols="55" rows="5">
                 </textarea>
-                  <Button title={'Add'} bgColor={'bg-green-500 text-white w-10/12 py-2'}/>
+                  <Button disable={loading} title={'Add'} bgColor={'bg-green-500 text-white w-10/12 py-2'}/>
             </form>
             <Toaster
          position="top-center"
