@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AUTH_CONTEXT } from "../../context/AuthProvider";
 import googleIcon from "../../assets/google.png"
+import { addUser } from "../../utils";
 const Login = () => {
   const {logInWithGoogle,logInFirebase} = useContext(AUTH_CONTEXT)
   const navigate = useNavigate()
@@ -20,8 +21,17 @@ const Login = () => {
      }
      }
      const handleLoginWithGoogle = async () => {
-      await logInWithGoogle()
+    try {
+      const result = await logInWithGoogle()
+      console.log(result)
+      const data = {name:result.user?.displayName,email:result.user?.email,
+        image:result.user?.photoURL,role:"admin"}
+      console.log(data)
       navigate("/")
+      await addUser({data})
+    } catch (error) {
+      console.log(error)
+    }
      }
     return (
         <div className="flex flex-col
@@ -37,7 +47,7 @@ const Login = () => {
          mx-auto min-h-[600px]
          rounded-lg
          flex flex-col space-y-8 py-12 justify-center  items-center">
-          <button 
+           <button 
           onClick={handleLoginWithGoogle}
              className="rounded-md
               bg-black text-white

@@ -34,7 +34,7 @@ const Profile = () => {
             <div>
                 <h3 className="text-2xl text-center py-5 font bold">Posts</h3>
             </div>
-            <Posts/>
+            <Posts />
            </div>
         </div>
     );

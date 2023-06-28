@@ -1,22 +1,24 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
+import { getUserPosts } from "../../utils";
+import { useQuery } from "@tanstack/react-query";
 import { AUTH_CONTEXT } from "../../context/AuthProvider";
-import Card from "../../componetns/Places/Card";
+import Card from "./Card";
 
 const Posts = () => {
-    const [posts,setPosts] = useState([])
     const {user} = useContext(AUTH_CONTEXT)
+    const {data : userPosts = [] , isLoading,isError} = useQuery({
+        queryKey:['user-posts'],
+        queryFn: () => getUserPosts(user?.email),
+      })
+      console.log(userPosts)
 
-    useEffect(() => {
-        const getData = async () => {
-            const res = await axios.get(`http://localhost:3000/posts/email?email=${user?.email}`)
-            setPosts(res.data)
-        }
-        getData()
-    } ,[])
+      if(isError) return <p>Error</p>
+
     return (
         <div className="space-y-9">
-            {posts.map((post) => <Card key={post._id} place={post}/>)}
+            {isLoading ? <p className="text-center">Loading...</p> :
+            userPosts.map((post) =>
+             <Card key={post._id}  place={post}/>)}
         </div>
     );
 };

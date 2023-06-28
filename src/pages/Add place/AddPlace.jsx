@@ -2,15 +2,25 @@ import { useForm } from "react-hook-form";
 import Button from "../../componetns/Button/Button";
 import { addPlace, uploadImage } from "../../utils";
 import { Toaster, toast } from "react-hot-toast";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { AUTH_CONTEXT } from "../../context/AuthProvider";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const AddPlace = () => {
+  const queryClient = useQueryClient()
   const {user} = useContext(AUTH_CONTEXT)
-  const [loading,setLoading] = useState(false)
-    const { register, handleSubmit ,reset} = useForm();
+  const { register, handleSubmit ,reset} = useForm();
+
+  const mutation = useMutation({
+    mutationFn: addPlace,
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey:['posts']})
+      toast.success('Successfully posted!')
+      reset()
+    }
+  })
+
       const onSubmit = async (data) => {
-        setLoading(true)
         const url = await uploadImage(data.image[0])
         console.log(url)
         const {title,location,category,rating,details} = data;
@@ -24,13 +34,8 @@ const AddPlace = () => {
           rating,
           details,
         }
-        const res = await addPlace(placeData)
-        if(res.statusText === "Created"){
-          toast.success('Successfully posted!')
-          reset()
-        }
-        setLoading(false)
-        console.log()
+         mutation.mutate(placeData)
+        
      }
     return (
         <div className="flex items-center h-screen w-full justify-center">
@@ -92,7 +97,7 @@ const AddPlace = () => {
                 className="p-2 w-10/12"
                 cols="55" rows="5">
                 </textarea>
-                  <Button disable={loading} title={'Add'} bgColor={'bg-green-500 text-white w-10/12 py-2'}/>
+                  <Button  title={'Add'} bgColor={'bg-green-500 text-white w-10/12 py-2'}/>
             </form>
             <Toaster
          position="top-center"

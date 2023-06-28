@@ -1,5 +1,16 @@
 import axios from "axios"
+//get all the posts
+const getPosts = async () => {
+  const res = await axios.get(`http://localhost:3000/posts`)
+  return res.data
+}
 
+// get specific user posts
+const getUserPosts = async (email) => {
+  const res = await axios.get(`http://localhost:3000/posts/email?email=${email}`)
+  console.log(res.data)
+  return res.data
+}
 
 const addPlace = async (data) =>{
     const res = await axios.post("http://localhost:3000/posts",data)
@@ -9,7 +20,7 @@ const addPlace = async (data) =>{
 // add user mongoData base
 const addUser = async (data) => {
   const res = await axios.post("http://localhost:3000/user",data)
-  return res;
+  return res.data;
 }
 
 
@@ -27,4 +38,4 @@ const uploadImage = async image => {
     return data.data.display_url
   }
 
-  export {uploadImage,addPlace,addUser}
+  export {uploadImage,addPlace,addUser,getPosts,getUserPosts}

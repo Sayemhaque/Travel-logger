@@ -1,28 +1,18 @@
-import { useEffect, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Card from "./Card";
+import { useQuery } from "@tanstack/react-query";
+import { getPosts } from "../../utils";
 
 const Places = () => {
-  const [places, setPlaces] = useState([])
+  const {data : places = [] , isLoading,isError} = useQuery({
+    queryKey:['posts'],
+    queryFn: getPosts,
+    cacheTime:Places
+  })
 
 
- 
 
-  // const totalItemsPerPage = parseInt(6); // TODO: will make it dynamic
-  // const totalPages = Math.ceil(totalPlaces / totalItemsPerPage)
-  // const pages = [...Array(totalPages).keys()]
-
-  useEffect(() => {
-    const getData = async () => {
-      const res = await fetch(`http://localhost:3000/posts`)
-      const data = await res.json()
-      setPlaces(data)
-      console.log(data)
-    }
-    getData()
-   
-  }, [])
-
+  if(isError) return <p>Error</p>
 
  console.log(places)
   return (
@@ -30,7 +20,7 @@ const Places = () => {
       <div className="grid grid-cols-1 md:grid-cols-4  px-5 md:px-12 gap-5">
         <Sidebar />
         <div className="md:col-span-3 space-y-12">
-          {places.map(place => <Card key={place.category} place={place} />)}
+          {isLoading ? <p className="text-center">Loading...</p> :places.map(place => <Card key={place.category} place={place} />)}
           <div className="text-center space-x-2">
             <p>{places.length}</p>
           </div>
